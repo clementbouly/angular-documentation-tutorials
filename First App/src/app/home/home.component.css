@@ -1,0 +1,39 @@
+.results {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+input[type="text"] {
+  border: solid 1px var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+
+button {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+@media (500px <= width <= 768px) {
+  input[type="text"] {
+    width: 70%;
+  }
+}
+
+@media (width < 499px) {
+  form {
+    display: flex;
+  }
+  input[type="text"] {
+    flex: 1;
+  }
+}
