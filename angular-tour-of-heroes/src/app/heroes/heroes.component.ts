@@ -15,17 +15,32 @@ export class HeroesComponent {
   $heroes?: Observable<Hero[]>;
   selectedHero?: Hero;
 
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) {}
+  constructor(private heroService: HeroService) {}
 
   ngOnInit() {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    // this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
-    this.$heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+    // this.$heroes = this.heroService.getHeroes();
+  }
+
+  add(name: string): void {
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      if (hero) {
+        this.heroes.push(hero);
+      }
+    });
+  }
+
+  delete(hero: Hero, event: Event): void {
+    event.stopPropagation();
+    this.heroService.deleteHero(hero).subscribe(() => {
+      this.heroes = this.heroes.filter((h) => h !== hero);
+    });
   }
 }

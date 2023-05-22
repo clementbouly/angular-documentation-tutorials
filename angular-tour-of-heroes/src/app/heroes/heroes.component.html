@@ -1,15 +1,35 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of $heroes | async">
+  <li *ngFor="let hero of heroes">
     <button
       type="button"
+      class="button-link"
       [routerLink]="['/detail', hero.id]"
       [class.selected]="selectedHero === hero"
     >
       <span class="badge">{{ hero.id }}</span>
       <span class="name">{{ hero.name }}</span>
+      <button
+        type="button"
+        class="btn btn-danger"
+        title="delete hero"
+        (click)="delete(hero, $event)"
+      >
+        x
+      </button>
     </button>
   </li>
 </ul>
 <hr />
-<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<h2>Add a hero</h2>
+<div class="add-hero">
+  <label for="new-hero">Hero name: <input id="new-hero" #heroName /> </label>
+
+  <button
+    type="button"
+    class="btn btn-success"
+    (click)="add(heroName.value); heroName.value = ''"
+  >
+    Add hero
+  </button>
+</div>

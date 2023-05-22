@@ -58,8 +58,7 @@ button:disabled {
 
 nav {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  justify-content: start;
 }
 
 a {
@@ -67,5 +66,16 @@ a {
   background-color: #369;
   padding: 0.5rem;
   text-decoration: none;
-  border-radius: 5px;
+  border-right: #333 1px solid;
+}
+
+a:not(.selected):hover {
+  background-color: #258;
+  color: white;
+}
+
+.selected {
+  background-color: white;
+  color: black;
+  border: #333 1px solid;
 }
