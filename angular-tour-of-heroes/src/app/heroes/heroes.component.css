@@ -1,0 +1,46 @@
+li {
+  list-style-type: none;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  /* remove default style button */
+  background-color: hsl(0, 0%, 90%);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 0.8rem;
+  display: flex;
+  width: min(95%, 20rem);
+  padding: 0px;
+  overflow: hidden;
+}
+
+.selected {
+  background-color: hsl(0, 0%, 50%);
+  color: white;
+}
+
+button:not(.selected):hover {
+  background-color: hsl(0, 0%, 80%);
+}
+
+.badge {
+  background-color: #333333;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.name {
+  padding: 10px;
+  padding-left: 15px;
+  font-size: 1rem;
+}
+
+.heroes {
+  padding-left: 1rem;
+}
